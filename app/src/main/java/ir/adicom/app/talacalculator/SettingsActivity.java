@@ -3,9 +3,18 @@ package ir.adicom.app.talacalculator;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    TextView txtMessage;
+    CustomButton btnUp;
+    CustomButton btnDown;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +55,30 @@ public class SettingsActivity extends AppCompatActivity {
                 host.getTabWidget().getChildAt(host.getCurrentTab()).setBackgroundColor(Color.parseColor("#FFFFFF"));
             }
         });
+
+        final TextView txtMessage = (TextView) findViewById(R.id.txtMessage);
+        final CustomButton btnUp = (CustomButton) findViewById(R.id.view1);
+        final CustomButton btnDown = (CustomButton) findViewById(R.id.view2);
+        String str = "فرمول محاسبه در حال استفاده:\n(وزن کل*(اجرت ساخت هر گرم+ قیمت هر گرم طلای خام))\n+\n"+
+                btnUp.getNumber()+
+                " درصد سود فروشنده\n+\n"+
+                btnDown.getNumber()+
+                " درصد مالیات بر ارزش افزوده";
+        txtMessage.setText(str);
+
+        Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String str = "فرمول محاسبه در حال استفاده:\n(وزن کل*(اجرت ساخت هر گرم+ قیمت هر گرم طلای خام))\n+\n"+
+                        btnUp.getNumber()+
+                        " درصد سود فروشنده\n+\n"+
+                        btnDown.getNumber()+
+                        " درصد مالیات بر ارزش افزوده";
+                txtMessage.setText(str);
+
+            }
+        });
     }
+
 }
