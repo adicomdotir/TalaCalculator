@@ -1,5 +1,6 @@
 package ir.adicom.app.talacalculator;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,12 +15,18 @@ public class SettingsActivity extends AppCompatActivity {
     TextView txtMessage;
     CustomButton btnUp;
     CustomButton btnDown;
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    int ps, pt;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        final SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        ps = prefs.getInt("percent", -1);
+        pt = prefs.getInt("tax", -1);
 
         final TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
@@ -58,7 +65,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         final TextView txtMessage = (TextView) findViewById(R.id.txtMessage);
         final CustomButton btnUp = (CustomButton) findViewById(R.id.view1);
+        btnUp.setNumber(ps);
         final CustomButton btnDown = (CustomButton) findViewById(R.id.view2);
+        btnDown.setNumber(pt);
         String str = "فرمول محاسبه در حال استفاده:\n(وزن کل*(اجرت ساخت هر گرم+ قیمت هر گرم طلای خام))\n+\n"+
                 btnUp.getNumber()+
                 " درصد سود فروشنده\n+\n"+
@@ -76,7 +85,10 @@ public class SettingsActivity extends AppCompatActivity {
                         btnDown.getNumber()+
                         " درصد مالیات بر ارزش افزوده";
                 txtMessage.setText(str);
-
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("percent", btnUp.getNumber());
+                editor.putInt("tax", btnDown.getNumber());
+                editor.commit();
             }
         });
     }

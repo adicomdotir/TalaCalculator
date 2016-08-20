@@ -2,8 +2,6 @@ package ir.adicom.app.talacalculator;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -34,7 +32,6 @@ public class CustomButton extends LinearLayout {
 
 
     private void init() {
-        number = 7;
         View view = inflate(getContext(), R.layout.custom_button, null);
         textView = (TextView) view.findViewById(R.id.textView2);
         btnInc = (Button) view.findViewById(R.id.btnInc);
@@ -62,8 +59,9 @@ public class CustomButton extends LinearLayout {
     public int getNumber() {
         return number;
     }
-}
 
-interface OnClickCustom {
-    void onClickMe();
+    public void setNumber(int n) {
+        this.number = n;
+        textView.setText("" + number);
+    }
 }

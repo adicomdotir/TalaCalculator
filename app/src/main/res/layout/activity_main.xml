@@ -6,4 +6,139 @@
     tools:context="ir.adicom.app.talacalculator.MainActivity"
     android:padding="10dp">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:background="#fdfdaa"
+                android:text="وزن (گرم)"
+                android:id="@+id/textView"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_below="@+id/textView"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="10.75" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="به عنوان مثال 20.75 گرم"
+                android:textSize="10dp"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/editText"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:background="#fdfdaa"
+                android:textColor="#000"
+                android:text="قیمت هر گرم طلای شما (تومان)"
+                android:id="@+id/textView4"
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText2"
+                android:layout_below="@+id/textView4"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="100000" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:text="بعنوان مثال قیمت هر گرم طلای 18 عیار 100000 تومان میباشد."
+                android:id="@+id/textView5"
+                android:layout_below="@+id/editText2"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:background="#fdfdaa"
+                android:textColor="#000"
+                android:text="دستمزد ساخت (از فروشنده بپرسید)"
+                android:id="@+id/textView6"
+                android:layout_below="@+id/textView5"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:text="10000"
+                android:gravity="center"
+                android:id="@+id/editText3"
+                android:layout_below="@+id/textView6"
+                android:layout_alignLeft="@+id/editText2"
+                android:layout_alignStart="@+id/editText2" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textSize="10dp"
+                android:text="بعنوان مثال دستمزد ساخت این طلا 10000 تومان میباشد."
+                android:id="@+id/textView7"
+                android:layout_below="@+id/editText3"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="محاسبه"
+                android:id="@+id/btnCalc"
+                android:layout_below="@+id/textView7"
+                android:layout_centerHorizontal="true" />
+            
+            <TextView
+                android:visibility="invisible"
+                android:layout_marginTop="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:id="@+id/txtResult"
+                android:textStyle="bold"
+                android:background="#91ff83"
+                android:layout_below="@id/btnCalc"
+                android:textColor="#000"/>
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>
